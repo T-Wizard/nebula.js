@@ -42,7 +42,7 @@ const config = ({
     return false;
   }
 
-  const fileTarget = format === 'esm' ? pkg.module : pkg.main;
+  const fileTarget = argv.fileTarget || (format === 'esm' ? pkg.module : pkg.main);
 
   const auth = typeof author === 'object' ? `${author.name} <${author.email}>` : author || '';
   const moduleName = name.split('/').reverse()[0];
